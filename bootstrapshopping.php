@@ -389,6 +389,7 @@ while($row = mysqli_fetch_assoc ( $result )) {
         }else{cartqty.innerText= parseInt(cartqty.innerText)+1;
         }
     }
+
     </script>
 </body>
 
