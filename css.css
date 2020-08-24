@@ -1,0 +1,274 @@
+body {
+    font-family: cursive;
+    background-color: lightgoldenrodyellow;
+  }
+
+  sup {
+    font-size: 13pt;
+    color: red;
+  }
+
+  .menu {
+      background-image: url("images/Welcome.jpg");
+      background-repeat: no-repeat;
+      background-position: center;
+    text-align: right;
+    vertical-align: top;
+    width: 90%;
+
+  }
+
+  .logo {
+    position: absolute;
+    left: 25px;
+    width: 160px;
+    height: 140px;
+  }
+
+
+  .welcomelogo {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 350px;
+    height: 100px;
+  }
+
+  form {
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 30px;
+  }
+
+  .in_search {
+    width: 500px;
+    height: 20px;
+  }
+
+  #cartitem {
+    position: absolute;
+    top: 43px;
+    right: 100px;
+    border: 1px black solid;
+
+    /* display: inline-block; */
+    width: auto;
+    height: auto;
+    text-align: left;
+    background-color: white;
+    visibility: hidden;
+
+  }
+
+  #cartitem ul {
+    padding: 0px;
+  }
+
+  #cartitem li {
+    list-style-type: none;
+    padding: 0px;
+
+  }
+  .sp1 {
+    font-size: 16pt;
+    font-weight: bold;
+    color: rgb(243, 118, 118);
+  }
+  .sp2 {
+    font-size: 13pt;
+  }
+  .cartitema {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+  }
+
+
+
+  .navul li {
+    display: inline;
+    margin-right: 10px;
+  }
+
+  .imgs {
+    padding: 0px 20px;
+    width: 100%;
+  }
+
+  .divimg {
+    float: left;
+    width: 150px;
+  }
+
+  .divimg a {
+    display: block;
+    font-size: 13pt;
+    line-height: 30px;
+  }
+
+  iframe {
+    margin-top: 15px;
+  }
+
+  .midbody {
+    width: 80%;
+    padding: 0px;
+    margin-left: 220px;
+  }
+
+
+
+  .img {
+    float: left;
+    margin-top: 20px;
+    margin-left: 10px;
+    padding-right: 30px;
+    width: 150px;
+  }
+
+
+
+  img {
+    display: inline-block;
+    /* line-height: 20px; */
+    width: 120px;
+    height: 120px;
+  }
+
+  .img p {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-top: 5px;
+    margin-bottom: 0px;
+    font-size: 10pt;
+    line-height: 12pt;
+  }
+
+  .img p:nth-of-type(1) {
+    font-size: 15pt;
+    font-weight: bold;
+
+  }
+
+  button {
+    display: block;
+    height: 35px;
+    width: 100px;
+    border-radius: 20px 20px;
+    border: 1px solid black;
+    margin-left: 10px;
+    margin-top: 4px;
+    background-color: #444444;
+    color: white;
+  }
+
+  button:hover {
+    background-color: black;
+  }
+
+
+
+  a:link {
+    text-decoration: none;
+  }
+
+  a:visited {
+    color: blueviolet;
+  }
+
+  a:hover {
+    color: red;
+    text-decoration: underline;
+  }
+
+  a:active {
+    color: brown;
+  }
+
+  @media screen and (max-width:800px) {
+    .welcomelogo {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 60px;
+      margin-left: auto;
+      margin-right: auto;
+      width: 200px;
+      height: 70px;
+    }
+
+    .logo {
+      display: none;
+    }
+
+    .in_search {
+      width: 300px;
+      height: 30px;
+    }
+
+    .menu {
+      text-align: center;
+      vertical-align: top;
+      font-size: 15pt;
+
+    }
+
+    .divimg {
+      float: left;
+      margin-right: 0px;
+    }
+
+    .divimg a {
+      display: block;
+      font-size: 15pt;
+      line-height: 30px;
+    }
+
+    .imgs {
+      padding: 0px;
+    }
+
+    img {
+      display: inline-block;
+      line-height: 10px;
+      width: 80px;
+      height: 80px;
+    }
+
+    .img {
+      float: left;
+      margin-left: 10px;
+      padding-right: 0px;
+      width: 150px;
+    }
+
+    .img p {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      margin: 0px;
+      margin-bottom: 0px;
+      font-size: 10pt;
+    }
+
+    .img p:nth-of-type(1) {
+      font-size: 13pt;
+      font-weight: bold;
+    }
+
+    button {
+      display: block;
+      height: 20px;
+      width: 78px;
+      border-radius: 20px 20px;
+      border: 1px solid black;
+      margin-left: 3px;
+      margin-top: 4px;
+      background-color: #444444;
+      color: white;
+    }
+
+  }

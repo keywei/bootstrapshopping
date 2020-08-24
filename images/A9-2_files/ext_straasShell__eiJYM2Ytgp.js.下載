@@ -1,0 +1,72 @@
+(function() {
+	var isEventSupported, detect, c, max;
+	
+	if (!window) return;
+
+	isEventSupported = function(eventName, element) {
+		var e, en = 'on' + eventName, isSupported;
+		e = document.createElement('div');
+		if (element) e = (element.tagName) ? element.cloneNode(true) : element;
+		isSupported = (en in e);
+		if (!isSupported && e.setAttribute) {
+			e.setAttribute(en, '');
+			isSupported = typeof e[en] == 'function';
+			if (typeof e[en] != 'undefined') e[en] = null;
+			e.removeAttribute(en);
+		}//end if
+		e = null;
+		return isSupported;
+	};
+
+	detect = function() {
+		return (isEventSupported('touchstart')) ? 'touch' : (navigator.msPointerEnabled && navigator.msMaxTouchPoints && navigator.msMaxTouchPoints > 1) ? 'pointer' : false;
+	};
+
+
+	init = function() {
+		var conf, script, L1;
+		if (detect()) return;
+
+		conf = {
+			uri: '/item/live_ajax',
+			js: 'https://s.yimg.com/ma/auc/common/js/pack-straas-shell_180918.js',
+			duration: 60 * 10 * 1000,//ms
+			LSKey: 'y_straas_shell_itempage',
+			deltaExpire: (60 * 60 * 12) * 1000, //ms
+			args: {}
+		};
+
+	    if (document.querySelector('ul[class*=breadcrumbList]>li:nth-child(2) a')) {
+	        L1 = document.querySelector('ul[class*=breadcrumbList]>li:nth-child(2) a').href;
+	        L1 = L1.replace(/.*-(\d+)-category.*/, '$1');
+	        conf.args.catId = L1;
+	    }//end if
+
+	    conf.args.action = 'live';
+
+	    script = document.createElement('script');
+	    document.head.appendChild(script);
+	    script.async = true;
+	    script.setAttribute('data-conf', JSON.stringify(conf));
+	    script.src = 'https://s.yimg.com/ma/auc/common/js/ext_y_straas_shell_181012.js';
+	};
+
+	//start
+	c = 0;
+	max = 10000;
+	if (typeof navigator.oRegists == 'undefined') navigator.oRegists = {};
+	navigator.oRegists.livePromote = setInterval(
+		function() {
+			c += 5;
+			if (c >= max) {
+				clearInterval(navigator.oRegists.livePromote);
+				return;
+			}//end if
+			if (document.body) {
+				clearInterval(navigator.oRegists.livePromote);
+				navigator.oRegists.livePromote = null;
+				init();
+			}//end if
+		}
+	, 5);
+})();

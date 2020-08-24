@@ -1,0 +1,34 @@
+const ref = document.referrer || ''
+
+const showLinePop = function () {
+  const pop = document.createElement('div')
+  pop.style.cssText = `
+position: fixed;
+width: 100%;
+height: 100%;
+overflow: hidden;
+top: 0;
+left: 0;
+background: rgba(0, 0, 0, 0.7);
+z-index: 30000;
+text-align: center;
+`
+  pop.innerHTML = `
+<b style="display:inline-block;height:100%;vertical-align:middle"></b>
+<span style="display:inline-block;vertical-align:middle;width:250px;background:#fff;padding:20px 25px">
+ <h2 style="color:#26282a;font-size:18px;line-height:1.11;text-align:left;font-weight:normal">限時好康回饋</h2>
+ <p style="line-height:1.4;text-align:left;color:#26282a;margin:15px 0 30px">LINE 購物 | Yahooo 拍賣限時優惠, 請於24小時內盡速下單</p>
+ <a href="${location.href}" style="font-weight:normal;font-size:16px;padding:10px;border-radius:4px;background:#3abfba;color:#fff;text-decoration:none;display:block">我知道了！</a>
+</span>
+`
+
+  pop.children[1].onClick = () => {
+    pop.style.display = 'none'
+  }
+
+  document.body.appendChild(pop)
+}
+
+if ((window.navigator.userAgent.match(/Line/) && ref.match('line.buy.me')) || location.href.match('fromline')) {
+  showLinePop()
+}
